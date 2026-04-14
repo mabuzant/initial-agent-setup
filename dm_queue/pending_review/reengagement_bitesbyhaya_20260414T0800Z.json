@@ -1,0 +1,27 @@
+{
+  "username": "@bitesbyhaya",
+  "category": "reengagement",
+  "riskLevel": "high",
+  "language": "english",
+  "suggestedMessage": "Hey Haya! 👋\n\nIt's been a little while since we've seen you on flowOrder — just wanted to check in and make sure everything's going well.\n\nIs there anything we can help with? Whether it's getting more orders, updating your menu, or anything else — we're here.\n\nHope things are good! 😊",
+  "context": {
+    "signupDate": "2026-01-18",
+    "plan": "Starter",
+    "mrr": 99,
+    "productsListed": 4,
+    "ordersLast30d": 0,
+    "lastLogin": "2026-03-28",
+    "daysSinceLastLogin": 17,
+    "stripeStatus": "active",
+    "dmSentiment": "none — silent disengagement",
+    "escalateToKhalid": false,
+    "tone": "warm_casual_non_salesy",
+    "note": "Previously had 3 avg logins/week. Sharp drop-off 17 days ago. Unknown cause — no DM signals. Soft check-in only; don't push product features."
+  },
+  "urgency": "respond_within_7d",
+  "agent": "Amira",
+  "timestamp": "2026-04-14T08:00:00Z",
+  "approvalRequired": true,
+  "approvedBy": null,
+  "sentAt": null
+}

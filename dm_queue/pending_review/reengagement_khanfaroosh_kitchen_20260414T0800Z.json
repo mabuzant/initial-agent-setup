@@ -1,0 +1,29 @@
+{
+  "username": "@khanfaroosh_kitchen",
+  "category": "payment_recovery",
+  "riskLevel": "high",
+  "language": "bilingual",
+  "suggestedMessage": "Hi! 👋\n\nWe noticed your last payment for flowOrder didn't go through — probably just a card issue. Your store is still active for now, but we wanted to give you a heads-up before anything gets interrupted.\n\nUpdating your payment info takes 30 seconds: [floworder.app/billing]\n\nLet us know if you need any help!\n\n---\n\nمرحبا! لاحظنا إن الدفعة الأخيرة ما اتمت — على الأغلب مشكلة بطاقة بسيطة. متجرك لسه شغّال، بس حدّثنا تفاصيل الدفع قبل ما ينقطع الخدمة: [floworder.app/billing]",
+  "context": {
+    "signupDate": "2025-09-14",
+    "plan": "Standard",
+    "mrr": 149,
+    "productsListed": 9,
+    "ordersLast30d": 11,
+    "stripeStatus": "past_due",
+    "failedChargeDate": "2026-04-10",
+    "daysSinceFailure": 4,
+    "retrySucceeded": false,
+    "lastLogin": "2026-04-08",
+    "daysSinceLastLogin": 6,
+    "dmSentiment": "none — no churn intent signals detected",
+    "escalateToKhalid": false,
+    "note": "Payment failure only. Customer is active (11 orders/30d). Tone: friendly heads-up, not alarming."
+  },
+  "urgency": "respond_within_7d",
+  "agent": "Amira",
+  "timestamp": "2026-04-14T08:00:00Z",
+  "approvalRequired": true,
+  "approvedBy": null,
+  "sentAt": null
+}

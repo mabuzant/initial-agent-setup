@@ -1,0 +1,29 @@
+{
+  "username": "@luqaimat_aisha",
+  "category": "reengagement",
+  "riskLevel": "critical",
+  "language": "arabic_primary",
+  "suggestedMessage": "مرحبا عيشة! 👋\n\nشفنا رسالتك — وأبي أتأكد إنك تحصلين على أفضل تجربة ممكنة مع flowOrder.\n\nلو في شي مو شغّال صح أو تحتاجين مساعدة، أنا هنا. نقدر نسوي مكالمة قصيرة أو تردين هنا وبنحل سوا.\n\nما نبيك تمشين وعندك أي سؤال بدون إجابة. 🙏",
+  "context": {
+    "signupDate": "2025-11-22",
+    "plan": "Standard",
+    "mrr": 149,
+    "productsListed": 7,
+    "ordersLast30d": 3,
+    "daysSinceLastOrder": 8,
+    "lastLogin": "2026-04-12",
+    "daysSinceLastLogin": 2,
+    "dmSentiment": "Asked 'كيف أوقف الاشتراك؟' (how do I cancel?) on 2026-04-11",
+    "stripeStatus": "active",
+    "lastPayment": "2026-04-01",
+    "escalateToKhalid": true,
+    "callRecommended": true,
+    "note": "Customer is still logging in — frustration, not disengagement. Tone must be warm and personal. Do NOT be defensive."
+  },
+  "urgency": "respond_within_24h",
+  "agent": "Amira",
+  "timestamp": "2026-04-14T08:00:00Z",
+  "approvalRequired": true,
+  "approvedBy": null,
+  "sentAt": null
+}

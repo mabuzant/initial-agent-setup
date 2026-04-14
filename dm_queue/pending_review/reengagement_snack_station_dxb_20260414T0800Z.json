@@ -1,0 +1,28 @@
+{
+  "username": "@snack_station_dxb",
+  "category": "activation",
+  "riskLevel": "high",
+  "language": "arabic",
+  "suggestedMessage": "مرحبا! 👋\n\nشفنا إنك سجلت في flowOrder قبل أكثر من أسبوع بس ما أضفت منتجات بعد.\n\nما في مشكلة — الإعداد سهل وما يأخذ أكثر من 5 دقائق. لو تحتاج مساعدة، نقدر نسوي مكالمة سريعة وتكون جاهز اليوم! 🚀\n\nتبي نرسلك فيديو شرح بسيط؟",
+  "context": {
+    "signupDate": "2026-04-02",
+    "daysSinceSignup": 12,
+    "plan": "Starter",
+    "mrr": 99,
+    "productsListed": 0,
+    "ordersLast30d": 0,
+    "lastLogin": "2026-04-10",
+    "daysSinceLastLogin": 4,
+    "stripeStatus": "active",
+    "dmSentiment": "none",
+    "escalateToKhalid": false,
+    "activationStrategy": "offer_onboarding_call_or_setup_video",
+    "goal": "Get first product listed within 48h"
+  },
+  "urgency": "respond_within_7d",
+  "agent": "Amira",
+  "timestamp": "2026-04-14T08:00:00Z",
+  "approvalRequired": true,
+  "approvedBy": null,
+  "sentAt": null
+}

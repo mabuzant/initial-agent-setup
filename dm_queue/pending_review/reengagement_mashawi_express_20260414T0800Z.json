@@ -1,0 +1,28 @@
+{
+  "username": "@mashawi_express",
+  "category": "reengagement",
+  "riskLevel": "critical",
+  "language": "bilingual",
+  "suggestedMessage": "Hi Khalid,\n\nWe noticed things have been quiet on your flowOrder store this past month — no orders coming through. We really want to make sure flowOrder is working for you.\n\nCan we jump on a quick 10-min call to understand what's happening? Or just reply here and we'll sort it out together.\n\n---\n\nمرحبا خالد،\n\nلاحظنا إنه ما في طلبات على متجرك في flowOrder خلال الشهر الماضي. نبي نتأكد إن التطبيق شغّال صح عندك.\n\nنقدر نسوي مكالمة سريعة 10 دقائق؟ أو ارد هنا وبنحل الموضوع سوا.",
+  "context": {
+    "signupDate": "2025-10-08",
+    "plan": "Premium",
+    "mrr": 299,
+    "productsListed": 14,
+    "ordersLast30d": 0,
+    "daysSinceLastOrder": 31,
+    "lastLogin": "2026-04-05",
+    "daysSinceLastLogin": 9,
+    "dmSentiment": "Said 'thinking of switching to something else' on 2026-04-09",
+    "stripeStatus": "active",
+    "lastPayment": "2026-03-15",
+    "escalateToKhalid": true,
+    "callRecommended": true
+  },
+  "urgency": "respond_within_24h",
+  "agent": "Amira",
+  "timestamp": "2026-04-14T08:00:00Z",
+  "approvalRequired": true,
+  "approvedBy": null,
+  "sentAt": null
+}

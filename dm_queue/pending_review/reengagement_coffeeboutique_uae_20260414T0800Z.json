@@ -1,0 +1,28 @@
+{
+  "username": "@coffeeboutique_uae",
+  "category": "reengagement",
+  "riskLevel": "high",
+  "language": "english",
+  "suggestedMessage": "Hey! ☕\n\nWe noticed you haven't received any orders through flowOrder in the past month — even though your store looks great with 6 products listed.\n\nA few quick things to check:\n- Is your flowOrder link in your Instagram bio?\n- Have you shared it in your Stories recently?\n- Are customers finding the ordering process easy?\n\nSometimes it's a small visibility tweak that makes the difference. Happy to take a quick look with you — just reply here and we'll troubleshoot together!",
+  "context": {
+    "signupDate": "2025-12-05",
+    "plan": "Standard",
+    "mrr": 149,
+    "productsListed": 6,
+    "ordersLast30d": 0,
+    "daysSinceLastOrder": 38,
+    "lastLogin": "2026-04-11",
+    "daysSinceLastLogin": 3,
+    "stripeStatus": "active",
+    "dmSentiment": "none — no negative signals",
+    "escalateToKhalid": false,
+    "troubleshootingFocus": ["instagram_bio_link", "story_sharing", "ordering_ux"],
+    "note": "Customer is still logging in regularly — motivated but stuck. Likely a discoverability or promotion issue, not product dissatisfaction."
+  },
+  "urgency": "respond_within_7d",
+  "agent": "Amira",
+  "timestamp": "2026-04-14T08:00:00Z",
+  "approvalRequired": true,
+  "approvedBy": null,
+  "sentAt": null
+}
