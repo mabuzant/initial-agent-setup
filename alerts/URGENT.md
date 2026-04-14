@@ -1,46 +1,75 @@
-🚨 CRITICAL: Raqeeb detected major integrity issue
-
-Issue: message-sender daemon is NOT running — no process found in ps aux
-Severity: P1
-Time detected: 2026-04-14T21:07:59Z
-Auto-fix attempted: No — daemon restart requires infrastructure access not available to Raqeeb
-Manual intervention needed: YES
+🚨 P1 ALERT — Infrastructure Critical (Multiple Issues)
+Detected by: Tarek (infrastructure watchdog)
+Time detected: 2026-04-14T22:00:00Z
 
 ---
 
-## Details
+## ISSUE 1: floworder.shop returning HTTP 403
 
-### What was found
-Running `ps aux | grep "message-sender"` returned zero results. The message-sender
-daemon responsible for dispatching approved DMs from dm_queue/approved/ is completely
-absent from the process list.
+**Severity**: P1
+**Status**: ACTIVE
+**Impact**: Storefront completely inaccessible to customers — no orders can be placed
 
-Additionally, the following expected runtime directories do not exist:
-- sent/                           (no sent log — rate limit checks cannot run)
-- dm_queue/approved/              (no approved queue — may be pre-deployment)
-- dm_queue/outreach/              (no outreach queue)
-- dm_queue/blocked_rate_limit/    (no rate limit block folder)
-- dm_queue/archived/              (no archive folder)
-- dm_queue/corrupted/             (no quarantine folder)
+**Details**:
+- HTTP GET https://floworder.shop returned status 403 FORBIDDEN
+- This is not a normal 200 OK response
+- Possible causes:
+  1. Cloudflare or WAF rule blocking all traffic (misconfiguration)
+  2. Hosting provider (Railway/Vercel) has suspended or blocked the app
+  3. IP-level access control accidentally set to deny-all
+  4. App server crashed and reverse proxy returning 403
 
-### What this means
-- No DMs are being dispatched. The queue pipeline is broken or not yet deployed.
-- Raqeeb cannot determine how long the daemon has been down (no PID file, no daemon logs).
-- 6 DMs are sitting in dm_queue/pending_review/ awaiting approval — once approved,
-  they will not be sent until the daemon is restored.
-- Rate limit check is BLIND: no sent/ directory means Raqeeb cannot detect if
-  the same user is being over-messaged.
+**Action required**:
+1. Check hosting provider dashboard (Railway/Vercel/etc) — is the deployment live?
+2. Check Cloudflare dashboard — any firewall rules recently changed?
+3. Check server/app logs for error output
+4. Verify DNS is pointing to the correct origin
+5. Test from multiple IPs to rule out IP-specific block
 
-### What still needs attention
-1. Investigate why message-sender is not running (crash? never started? deployment issue?)
-2. Check if this is a fresh deployment that hasn't been initialized yet
-3. Start the daemon and verify it can read from dm_queue/approved/
-4. Create the sent/ directory and initialise outreach_log.json
-5. Create missing queue subdirectories: approved/, outreach/, blocked_rate_limit/,
-   archived/pending_expired/, corrupted/
+**Last known good state**: Unknown — requires log review
 
-### Dispatch Notification
-🚨 Integrity issue detected
-Daemon (message-sender) is NOT running — queue is dead
-Raqeeb auto-fixed: nothing (restart requires manual intervention)
-Check alerts/URGENT.md for details
+---
+
+## ISSUE 2: Message Sender Daemon DEAD
+
+**Severity**: P1
+**Status**: ACTIVE (also confirmed by Raqeeb at 21:07:59Z)
+**Impact**: Zero DMs being dispatched — entire outreach pipeline is down
+
+**Details**:
+- daemon/heartbeat.txt does not exist — daemon has never written a heartbeat
+- No message-sender process found in ps aux (confirmed by Raqeeb)
+- dm_queue/approved/ is empty — nothing queued (or queue dirs not initialized)
+- 6 DMs in dm_queue/pending_review/ cannot be processed until daemon restored
+
+**Action required**:
+1. Determine why daemon is not running (crash? never started? deployment issue?)
+2. Check if this is a fresh deployment not yet initialized
+3. Start the daemon and verify it reads from dm_queue/approved/
+4. Create required directories: sent/, dm_queue/approved/, dm_queue/outreach/,
+   dm_queue/blocked_rate_limit/, dm_queue/archived/, dm_queue/corrupted/
+5. Verify heartbeat.txt is created within 60 seconds of daemon start
+
+---
+
+## Stripe Status
+- Disputes: 0 ✅ (no action needed)
+- Failed payments (last 24h): 0 ✅
+- 1 canceled payment intent: pi_3TK6IEQkfsbWOih21TnNRHfm (AED 1,499) — monitor for pattern
+
+---
+
+## 🚨 DISPATCH NOTIFICATION TRIGGERED
+
+```
+🚨 P1: floworder.shop is DOWN (HTTP 403)
+Storefront inaccessible — customers cannot place orders
+Check alerts/URGENT.md for remediation steps
+
+🚨 P1: Message Sender Daemon DEAD
+Heartbeat file missing — DMs not being dispatched
+Daemon down >15 min (confirmed by multiple agents)
+Check alerts/URGENT.md for remediation steps
+
+[View Logs] [Acknowledge]
+```
