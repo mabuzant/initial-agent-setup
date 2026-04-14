@@ -1,0 +1,89 @@
+{
+  "timestamp": "2026-04-14T06:00:00Z",
+  "run_number": 1,
+  "scrape_method": "web_search_fallback",
+  "scrape_notes": "Direct site fetches returned 403 on all competitors. Intelligence gathered via WebSearch + secondary sources.",
+  "salla": {
+    "pricing": {
+      "basic_sar_monthly": 260,
+      "basic_sar_annual": 2600,
+      "growth_sar_monthly": 460,
+      "growth_sar_annual": 4600,
+      "professional_sar_annual": 13800,
+      "special_plan": "enterprise_custom",
+      "free_tier": true,
+      "last_confirmed": "2026-04-14"
+    },
+    "scale": {
+      "merchants": "68000+",
+      "gmv_usd": "13.3B+",
+      "employees": "500+",
+      "integrations": "900+",
+      "logistics_partners": "1000+"
+    },
+    "features": {
+      "salla_ads": {
+        "status": "live",
+        "launched": "2025-Q2",
+        "description": "Built-in advertising platform (acquired Sweply). Supports Meta, Snapchat, TikTok, Google Ads with AI targeting.",
+        "threat_level": "MEDIUM"
+      },
+      "whatsapp_notifications": "live",
+      "mobile_app_builder": "live",
+      "uae_expansion": "active"
+    },
+    "positioning": "Saudi-first e-commerce platform expanding to UAE/GCC. General retail focus.",
+    "threat_level": "MEDIUM"
+  },
+  "zid": {
+    "pricing": {
+      "free_tier": true,
+      "paid_tiers": "confirmed_exists",
+      "sar_amounts": "unconfirmed_this_run_403",
+      "last_confirmed": "pre_2026"
+    },
+    "scale": {
+      "live_stores": 8927,
+      "funding_stage": "Series B",
+      "founded": 2017,
+      "hq": "Riyadh, Saudi Arabia"
+    },
+    "features": {
+      "whatsapp_ordering": {
+        "status": "LIVE_CONFIRMED",
+        "description": "End-to-end WhatsApp ordering: order management, payments, shipping, customer comms. Bundled in paid plans.",
+        "threat_level": "HIGH"
+      },
+      "pos_integration": "live",
+      "amazon_marketplace_sync": "live",
+      "tiktok_shop": "live",
+      "cross_border_ksa_uae": "live",
+      "zid_financing": "live",
+      "ai_marketing_tools": "live_and_expanding"
+    },
+    "positioning": "Total Commerce / omnichannel ecosystem. Online + offline + everywhere. Moving beyond e-commerce OS.",
+    "positioning_shift": "From 'e-commerce platform' to 'Total Commerce ecosystem'",
+    "threat_level": "HIGH"
+  },
+  "shopify": {
+    "pricing": {
+      "mena_specific": false,
+      "shopify_payments_uae": false,
+      "local_payment_partners": ["Tabby", "Tamara", "STC Pay", "Network International"],
+      "last_confirmed": "2026-04-14"
+    },
+    "mena_activity": {
+      "tiktok_partnership_mena": "extended",
+      "arabic_localization": "active_push_2026",
+      "uae_guides_published": true,
+      "f_and_b_specific": false
+    },
+    "market_context": {
+      "mena_ecommerce_market_usd": "40B+",
+      "ksa_retail_cagr": "25%+",
+      "uae_digital_payment_penetration": "60%"
+    },
+    "positioning": "Global platform with MENA push. Targets larger/more sophisticated merchants. Local payment gap in UAE.",
+    "threat_level": "LOW_MEDIUM"
+  }
+}
