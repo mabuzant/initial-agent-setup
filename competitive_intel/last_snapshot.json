@@ -1,8 +1,8 @@
 {
-  "timestamp": "2026-04-14T06:00:00Z",
-  "run_number": 1,
+  "timestamp": "2026-04-16T12:00:00Z",
+  "run_number": 2,
   "scrape_method": "web_search_fallback",
-  "scrape_notes": "Direct site fetches returned 403 on all competitors. Intelligence gathered via WebSearch + secondary sources.",
+  "scrape_notes": "Direct site fetches returned 403 on all competitors (persistent bot-blocking). Intelligence gathered via WebSearch + Storeleads + press releases + engineering blogs + App Store listings.",
   "salla": {
     "pricing": {
       "basic_sar_monthly": 260,
@@ -12,10 +12,15 @@
       "professional_sar_annual": 13800,
       "special_plan": "enterprise_custom",
       "free_tier": true,
-      "last_confirmed": "2026-04-14"
+      "last_confirmed": "2026-04-16",
+      "change_detected": false
     },
     "scale": {
-      "merchants": "68000+",
+      "merchants_official_claim": "68k+",
+      "merchants_storeleads_qoq_change": "-13.9%",
+      "merchants_storeleads_yoy_change": "-60%",
+      "merchants_storeleads_period": "2025-Q4",
+      "net_switching_last_90d": "+60 (gained 84, lost 24)",
       "gmv_usd": "13.3B+",
       "employees": "500+",
       "integrations": "900+",
@@ -28,22 +33,34 @@
         "description": "Built-in advertising platform (acquired Sweply). Supports Meta, Snapchat, TikTok, Google Ads with AI targeting.",
         "threat_level": "MEDIUM"
       },
-      "whatsapp_notifications": "live",
+      "whatsapp_ordering": {
+        "status": "THIRD_PARTY_ONLY",
+        "description": "WhatsApp capabilities via App Store integrations only (BusinessChat, Javna AI, SmartTarget). NOT native built-in ordering. Structural gap vs. Zid.",
+        "last_confirmed": "2026-04-16"
+      },
       "mobile_app_builder": "live",
-      "uae_expansion": "active"
+      "uae_expansion": "active",
+      "f_and_b_vertical_campaign": "none_detected"
     },
-    "positioning": "Saudi-first e-commerce platform expanding to UAE/GCC. General retail focus.",
-    "threat_level": "MEDIUM"
+    "positioning": "Saudi-first e-commerce platform expanding to UAE/GCC. General retail focus. Merchant base showing contraction in Storeleads data.",
+    "threat_level": "MEDIUM",
+    "opportunity_signal": "Merchant decline may indicate F&B churn — acquisition opportunity for flowOrder"
   },
   "zid": {
     "pricing": {
       "free_tier": true,
       "paid_tiers": "confirmed_exists",
-      "sar_amounts": "unconfirmed_this_run_403",
-      "last_confirmed": "pre_2026"
+      "sar_amounts": "unconfirmed_403",
+      "last_confirmed": "pre_2026",
+      "change_detected": false
     },
     "scale": {
-      "live_stores": 8927,
+      "live_stores": "12000+",
+      "live_stores_previous_snapshot": 8927,
+      "live_stores_growth_pct": "+34%_approx",
+      "skus_on_platform": "4M+",
+      "lifetime_orders": "50M",
+      "lifetime_orders_milestone_date": "2026-01",
       "funding_stage": "Series B",
       "founded": 2017,
       "hq": "Riyadh, Saudi Arabia"
@@ -51,8 +68,19 @@
     "features": {
       "whatsapp_ordering": {
         "status": "LIVE_CONFIRMED",
-        "description": "End-to-end WhatsApp ordering: order management, payments, shipping, customer comms. Bundled in paid plans.",
-        "threat_level": "HIGH"
+        "description": "End-to-end WhatsApp ordering: order management, payments, shipping, customer comms. Bundled in paid plans. No new F&B-specific features detected this cycle.",
+        "threat_level": "HIGH",
+        "last_confirmed": "2026-04-16"
+      },
+      "mazeed_marketplace": {
+        "status": "live_and_growing",
+        "merchants": "8000",
+        "products": "2M+",
+        "app_downloads": "500k+",
+        "categories_includes_grocery": true,
+        "ramadan_campaign_run": true,
+        "description": "Consumer-facing B2C marketplace on top of Zid B2B platform. Not a direct WhatsApp ordering threat but strengthens KSA ecosystem lock-in.",
+        "threat_level": "LOW_MEDIUM"
       },
       "pos_integration": "live",
       "amazon_marketplace_sync": "live",
@@ -61,29 +89,47 @@
       "zid_financing": "live",
       "ai_marketing_tools": "live_and_expanding"
     },
-    "positioning": "Total Commerce / omnichannel ecosystem. Online + offline + everywhere. Moving beyond e-commerce OS.",
-    "positioning_shift": "From 'e-commerce platform' to 'Total Commerce ecosystem'",
+    "roadmap_2026": {
+      "developer_platform": "major_investment",
+      "api_uniformity": "in_progress",
+      "multi_cloud_deployment": "in_progress",
+      "f_and_b_vertical": "none_announced"
+    },
+    "positioning": "Total Commerce / omnichannel ecosystem. Online + offline + WhatsApp + Amazon + TikTok + cross-border. Developer ecosystem investment in 2026.",
     "threat_level": "HIGH"
   },
   "shopify": {
     "pricing": {
       "mena_specific": false,
       "shopify_payments_uae": false,
-      "local_payment_partners": ["Tabby", "Tamara", "STC Pay", "Network International"],
-      "last_confirmed": "2026-04-14"
+      "shopify_payments_uae_confirmed_date": "2026-04-16",
+      "local_payment_partners": ["Tabby", "Tamara", "STC Pay", "Network International", "Telr", "PayTabs", "Amazon Payment Services"],
+      "last_confirmed": "2026-04-16",
+      "change_detected": false
     },
     "mena_activity": {
-      "tiktok_partnership_mena": "extended",
+      "tiktok_partnership_mena": "active",
       "arabic_localization": "active_push_2026",
       "uae_guides_published": true,
-      "f_and_b_specific": false
+      "f_and_b_specific": false,
+      "new_mena_launches_april_2026": "none_detected"
     },
     "market_context": {
       "mena_ecommerce_market_usd": "40B+",
       "ksa_retail_cagr": "25%+",
       "uae_digital_payment_penetration": "60%"
     },
-    "positioning": "Global platform with MENA push. Targets larger/more sophisticated merchants. Local payment gap in UAE.",
+    "positioning": "Global platform with MENA push. Targets larger/more sophisticated merchants. Structural payment gap in UAE (no Shopify Payments).",
     "threat_level": "LOW_MEDIUM"
+  },
+  "delta_from_previous": {
+    "zid_merchants": "8927 → 12000+ (+34%)",
+    "zid_lifetime_orders": "new: 50M milestone",
+    "zid_mazeed_downloads": "new: 500k+",
+    "salla_storeleads_yoy": "new: -60% (Q4 2025)",
+    "salla_whatsapp_type": "confirmed: third-party only",
+    "shopify_payments_uae": "unchanged: not available",
+    "new_high_threats": "none",
+    "ongoing_high_threats": "1 (Zid WhatsApp ordering)"
   }
 }
