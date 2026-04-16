@@ -1,71 +1,81 @@
-🚨 CRITICAL: Raqeeb detected major integrity issue
-
-Issue: message-sender daemon is NOT running — confirmed dead 117+ minutes
-Severity: P1
-First detected: 2026-04-14T21:07:59Z
-Re-confirmed: 2026-04-14T22:15:47Z
-Re-confirmed (3rd): 2026-04-14T23:04:57Z
-Confirmed minimum downtime: 117 minutes
-Auto-fix attempted: No — daemon restart requires infrastructure access not available to Raqeeb
-Manual intervention needed: YES
+🚨 CRITICAL: Multiple P1 Issues Active — 2026-04-16
 
 ---
 
-## Details
+## Issue #1 — Message-Sender Daemon: DEAD (31+ Hours)
 
-### What was found
-Running `ps aux | grep "message-sender"` returned zero results at 21:07Z, 22:15Z, and 23:04Z.
-The message-sender daemon responsible for dispatching approved DMs is absent from the
-process list. Downtime is now confirmed at a minimum of 117 minutes with no sign of recovery.
+**Severity**: P1
+**First detected**: 2026-04-14T21:07:59Z
+**Last confirmed dead**: 2026-04-16T04:00:00Z
+**Confirmed minimum downtime**: 31 hours
+**Auto-fix attempted**: No — daemon restart requires infrastructure access
+**Manual intervention needed**: YES — IMMEDIATELY
 
-### Infrastructure Initialized This Run (23:04Z)
-Raqeeb created the following missing directories and files to unblock future checks:
-- ✅ dm_queue/approved/               (Check 1 now operational)
-- ✅ dm_queue/outreach/               (Check 4 now operational)
-- ✅ dm_queue/blocked_rate_limit/     (rate limit quarantine ready)
-- ✅ dm_queue/archived/pending_expired/ (stale-review archiving ready)
-- ✅ dm_queue/corrupted/              (file quarantine ready)
-- ✅ sent/outreach_log.json           (initialized empty — no sends on record; Check 3 now operational)
+### Details
+- daemon/heartbeat.txt does not exist
+- `ps aux | grep "message-sender"` has returned zero results on every check since April 14 21:07Z
+- No DMs have been dispatched in 31+ hours
+- All approved DMs remain undelivered
+- Infrastructure directories created by Raqeeb on 2026-04-14 are operational — daemon is the only missing piece
 
-### 🔴 Escalation: Urgency Windows Now Critical
-Two DMs in dm_queue/pending_review/ have respond_within_24h urgency.
-Windows close at 2026-04-15T08:00:00Z — approximately **8h 55m from now**.
-
-| Username | Category | Risk | MRR | Signal |
-|----------|----------|------|-----|--------|
-| @luqaimat_aisha | reengagement | critical | 149 AED/mo | Asked "كيف أوقف الاشتراك؟" (cancel intent) on 2026-04-11 |
-| @mashawi_express | reengagement | critical | 299 AED/mo | Said "thinking of switching to something else" on 2026-04-09 |
-
-Both have `escalateToKhalid: true` and `callRecommended: true`.
-With the daemon down, even if approved, these DMs CANNOT be sent automatically.
-**Manual dispatch or daemon restoration needed before 08:00Z 2026-04-15.**
-
-Combined MRR at risk if both churn: **448 AED/month**.
-
-### What this means
-- No DMs are being dispatched. The queue pipeline is not operational.
-- 6 DMs are sitting in dm_queue/pending_review/ awaiting approval — none can be sent.
-- Rate limit monitoring is now live (sent/outreach_log.json initialized).
-- Two high-value customers with active churn signals will miss their response window
-  if the daemon is not restored before 08:00Z 2026-04-15.
-
-### What still needs attention
-1. **URGENT**: Investigate why message-sender is not running (crash? never started? deployment issue?)
-2. Start the daemon and verify it can read from dm_queue/approved/
-3. **URGENT**: Manually review and approve DMs for @luqaimat_aisha and @mashawi_express
-   then manually send (or have Tarek send) before 2026-04-15T08:00:00Z
-4. Verify sent/ tracking is updated after any manual sends
+### Action Required
+1. Investigate why message-sender is not running (crash? deployment gap? env issue?)
+2. Restart daemon and verify it reads from dm_queue/approved/
+3. Check for any DMs that should have been sent in the last 31 hours
 
 ---
 
-## Dispatch Notification
+## Issue #2 — Critical Urgency Windows BREACHED (2 Customers)
 
-🚨 Integrity issue detected — HOUR 2, NO CHANGE
-Daemon (message-sender) STILL NOT running — now confirmed dead 117+ minutes (3 consecutive checks)
-Infrastructure gaps fixed by Raqeeb: created 5 missing queue dirs + initialized sent/outreach_log.json
-2 critical churn-risk DMs will miss 24h response window in ~8h 55m if not acted on:
-  • @luqaimat_aisha — asked to cancel (149 AED/mo)
-  • @mashawi_express — switching intent (299 AED/mo, highest value at risk)
-Raqeeb auto-fixed: infrastructure directories and sent log initialized
-Manual action required: restart daemon + manually send or approve critical DMs before 08:00Z Apr 15
-Check alerts/URGENT.md for full details
+**Severity**: P1
+**Urgency windows closed**: 2026-04-15T08:00:00Z (20+ hours ago)
+**Combined MRR at risk**: AED 448/month
+
+| Customer | Risk | MRR | Signal | Window Closed |
+|----------|------|-----|--------|---------------|
+| @luqaimat_aisha | 🔴 Critical | AED 149/mo | Explicitly asked "كيف أوقف الاشتراك؟" (cancel intent) | 2026-04-15T08:00Z |
+| @mashawi_express | 🔴 Critical | AED 299/mo | "thinking of switching to something else" + 0 orders in 31 days | 2026-04-15T08:00Z |
+
+Both had `escalateToKhalid: true` and `callRecommended: true`.
+Re-engagement DMs were generated by Amira on 2026-04-14 but could not be sent (daemon dead).
+Files are now archived to dm_queue/archived/pending_expired/ (stale >48h), but **the churn risk is still active**.
+
+### Action Required — URGENT
+1. **Mohammad or Khalid**: Contact @luqaimat_aisha and @mashawi_express directly (DM or call)
+2. Do NOT use the automated message — it is now 2 days stale. Reach out personally.
+3. @mashawi_express (AED 299/mo) is highest priority — 0 orders in 31 days + switching intent
+4. @luqaimat_aisha (AED 149/mo) — still logging in (frustration, not disengagement) — needs empathetic response
+
+---
+
+## Issue #3 — 6 Re-engagement DMs Undelivered (2 Days)
+
+**Severity**: P2
+**Customers affected**: @bitesbyhaya, @coffeeboutique_uae, @khanfaroosh_kitchen, @snack_station_dxb
+(in addition to the 2 critical above)
+
+These 4 customers had 7-day urgency windows. DMs are now 2 days old and undelivered.
+The messages in archived/pending_expired/ can still serve as context for manual outreach.
+
+| Customer | Risk | MRR | Issue |
+|----------|------|-----|-------|
+| @khanfaroosh_kitchen | High | AED 149/mo | Payment failed 4 days ago — `past_due` status |
+| @coffeeboutique_uae | High | AED 149/mo | 0 orders in 38 days |
+| @snack_station_dxb | High | AED 99/mo | Signed up 14 days ago, 0 products listed |
+| @bitesbyhaya | High | AED 99/mo | No login in 19 days |
+
+### Action Required
+Review archived DMs in dm_queue/archived/pending_expired/ for content, then send manually or restart daemon.
+
+---
+
+## Raqeeb Auto-Fixes This Run (2026-04-16)
+
+- ✅ Archived 6 stale pending review DMs → dm_queue/archived/pending_expired/
+- ✅ Verified all queues clean (approved: 0, outreach: 0, rate limit: 0 violations)
+- ✅ Updated this alert with current status
+
+---
+
+*Last updated by Raqeeb: 2026-04-16T04:00:00Z*
+*Next Raqeeb check: 2026-04-16T04:05:00Z*
